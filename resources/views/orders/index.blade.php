@@ -11,15 +11,15 @@
                     <a href="{{ route('orders.pdf') }}" class="btn btn-primary">Download PDF</a>
 
                     <a href="{{ route('orders.create') }}" class="btn btn-primary mb-3">Create New Order</a>
-
-                    @if ($orders->isEmpty())
-                        <p>No orders found.</p>
-                    @else
                     @if (session('error'))
                         <div class="alert alert-danger" role="alert">
                             {{ session('error') }}
                         </div>
                     @endif
+
+                    @if ($orders->isEmpty())
+                        <p>No orders found.</p>
+                    @else
                         <table class="table">
                             <thead>
                                 <tr>

@@ -6,6 +6,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\HomeController;
 
 
 /*
@@ -19,13 +20,11 @@ use App\Http\Controllers\Auth\LoginController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',  [HomeController::class, 'index']);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/role/master', [RoleController::class, 'index'])->name('role.master');
 Route::middleware('superadmin')->group(function () {
     Route::get('/roles/create', [RoleController::class, 'create'])->name('roles.create');
