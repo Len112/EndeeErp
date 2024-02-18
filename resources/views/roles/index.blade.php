@@ -7,10 +7,11 @@
             <div class="card">
                 <div class="card-header">
                     Role Master
-                    <a href="{{ route('roles.create') }}" class="btn btn-sm btn-primary float-right">Create New Role</a>
                 </div>
 
                 <div class="card-body">
+                    <a href="{{ route('roles.create') }}" class="btn btn-sm btn-primary float-right" style="margin-bottom: 10px">Create New Role</a>
+
                     @if (session('error'))
                         <div class="alert alert-danger" role="alert">
                             {{ session('error') }}
