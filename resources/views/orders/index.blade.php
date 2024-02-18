@@ -15,6 +15,11 @@
                     @if ($orders->isEmpty())
                         <p>No orders found.</p>
                     @else
+                    @if (session('error'))
+                        <div class="alert alert-danger" role="alert">
+                            {{ session('error') }}
+                        </div>
+                    @endif
                         <table class="table">
                             <thead>
                                 <tr>

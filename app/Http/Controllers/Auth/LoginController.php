@@ -62,4 +62,12 @@ class LoginController extends Controller
     {
         return redirect('/login');
     }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        // Redirect to the login page with a logout message
+        return redirect()->route('login')->with('logout_message', 'You have been logged out.');
+    }
 }

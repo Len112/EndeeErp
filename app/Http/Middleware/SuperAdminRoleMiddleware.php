@@ -18,7 +18,7 @@ class SuperAdminRoleMiddleware
     {
         if ($request->user() && $request->user()->role !== 'Super Admin') {
             session()->flash('error', 'You do not have permission to access this resource.');
-            return redirect()->route('role.master');
+            return back();
         }
         return $next($request);
     }

@@ -15,6 +15,20 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Monitor user activity
+        var timeout;
+        $(document).on('mousemove keypress', function() {
+            clearTimeout(timeout);
+            // Reset session timeout every 5 minutes (adjust as needed)
+            timeout = setTimeout(function() {
+                // Redirect to logout route
+                window.location.href = '/logout';
+            }, 15 * 60 * 1000); // 5 minutes
+        });
+    </script>
 </head>
 <body>
     <div id="app">
